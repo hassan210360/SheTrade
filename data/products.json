@@ -1,15 +1,21 @@
 
 [
   {
-    "name":"Royal Necklace",
-    "price":"$55",
-    "description":"Elegant handcrafted necklace.",
+    "name":"Royal Heritage Necklace",
+    "price":"$65",
+    "description":"Luxury handmade necklace inspired by timeless artisan traditions.",
     "image":"https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=1200&auto=format&fit=crop"
   },
   {
-    "name":"Golden Bracelet",
-    "price":"$35",
-    "description":"Traditional artisan bracelet.",
+    "name":"Golden Desert Bracelet",
+    "price":"$48",
+    "description":"Elegant handcrafted bracelet with premium artisan details.",
     "image":"https://images.unsplash.com/photo-1617038260897-41a1f14a2a1b?q=80&w=1200&auto=format&fit=crop"
+  },
+  {
+    "name":"Vintage Emerald Earrings",
+    "price":"$58",
+    "description":"Traditional earrings blending luxury and cultural craftsmanship.",
+    "image":"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1200&auto=format&fit=crop"
   }
 ]
