@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header>
+<div class="logo">Catalogue Admin</div>
+</header>
+
+<section class="container">
+
+<h2 class="section-title">Manage Products</h2>
+
+<input id="name" placeholder="Product Name">
+<input id="price" placeholder="Price">
+<input id="image" placeholder="Image URL">
+<textarea id="description" placeholder="Description"></textarea>
+
+<button class="btn" onclick="addProduct()">Add Product</button>
+
+<br><br>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Price</th>
+<th>Delete</th>
+</tr>
+</thead>
+<tbody id="products-table"></tbody>
+</table>
+
+</section>
+
+<script>
+function getProducts(){
+    return JSON.parse(localStorage.getItem('products')) || [];
+}
+
+function saveProducts(products){
+    localStorage.setItem('products', JSON.stringify(products));
+}
+
+function renderTable(){
+    const products = getProducts();
+    const table = document.getElementById('products-table');
+    table.innerHTML = "";
+
+    products.forEach((p,index)=>{
+        table.innerHTML += `
+        <tr>
+        <td>${p.name}</td>
+        <td>${p.price}</td>
+        <td><button class='btn' onclick='deleteProduct(${index})'>Delete</button></td>
+        </tr>`;
+    });
+}
+
+function addProduct(){
+    const products = getProducts();
+
+    products.push({
+        name:document.getElementById('name').value,
+        price:document.getElementById('price').value,
+        image:document.getElementById('image').value,
+        description:document.getElementById('description').value
+    });
+
+    saveProducts(products);
+    renderTable();
+
+    alert("Product added successfully!");
+}
+
+function deleteProduct(index){
+    const products = getProducts();
+    products.splice(index,1);
+    saveProducts(products);
+    renderTable();
+}
+
+renderTable();
+</script>
+
+</body>
+</html>
